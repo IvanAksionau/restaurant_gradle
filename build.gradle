@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "bean.DOMWriter"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.jdom', name: 'jdom2', version: '2.0.5'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
+group 'restaurant'
+version '1.0-SNAPSHOT'
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
